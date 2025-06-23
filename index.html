@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="lib/setup.css">
+    <link rel="stylesheet" href="lib/index.css">
+    <script src="lib/jquery.js"></script>
+    <script src="lib/setup.js"></script>
+
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+
+    <!-- swiper -->
+    <link  rel="stylesheet"  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- fontawsome -->
+    <script src="https://kit.fontawesome.com/81d2872b61.js" crossorigin="anonymous"></script>
+    <title>MINJOUNG PORTFOLIO</title>
+
+    <style>
+        body{
+            font-family: 'Noto Sans KR', sans-serif;
+            font-weight: 400;
+        }
+        header{
+            position: fixed;
+            width: 100%;
+            z-index: 99;
+            top: 0px;
+            left: 0px;
+            transition: all .3s 0s;
+        }
+        header.view{
+            background-color: #644234cc;
+            color: var(--main-white-color);
+        }
+        header.view:hover{
+            background-color: var(--main-brown-color);
+        }
+        header #logo h1{
+            font-size: 0px;
+            background-image: url(img/logo.svg);
+            background-size: 100px;
+            width: 200px;
+            height: 80px;
+            transition: all .3s 0s;
+        }
+        header.view #logo h1{
+            filter: contrast(0.5) brightness(5);
+        }
+        header #menu > ul > li > a{
+            margin: 0px 5px;
+            font-size: 20px;
+            line-height: 70px;
+            padding: 0px 10px;
+            position: relative;
+            color: var(--main-brown-color);
+            font-weight: bold;
+        }
+        header #mobile .button{
+            width: 50px;
+            height: 50px;
+            position: relative;
+            z-index: 9999;
+        }
+        header #mobile .button span{
+            width: 20px;
+            height: 2px;
+            background-color: var(--main-brown-color);
+            position:absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            transition: all .4s 0s;
+        }
+        header.view #mobile .button span{
+            background-color: white;
+        }
+        header #mobile .button span:nth-child(1){
+            transform: translate(-50%,-50%) translateY(-7px);
+        }
+        header #mobile .button span:nth-child(3){
+            transform: translate(-50%,-50%) translateY(7px);
+        }
+        header #mobile.view .button span:nth-child(1){
+            transform: translate(-50%,-50%) rotate(-45deg);
+        }
+        header #mobile.view .button span:nth-child(2){
+            transform: translate(-50%,-50%);
+            opacity: 0;
+        }
+        header #mobile.view .button span:nth-child(3){
+            transform: translate(-50%,-50%) rotate(45deg);
+        }
+        header #mobile .menuBox{
+            width: 270px;
+            background-color: var(--main-white-color);
+            color: #222;
+            z-index: 999;
+            transition: opacity .6s 0s, transform .4s 0s; 
+        }
+        header #mobile .menuBox,
+        header #mobile .menuBg{
+            position: fixed;
+            top: 0px;
+            right: 0px;
+            height: 100%;
+            transform: translateX(100%);
+            opacity: 0;
+        }
+        header #mobile.view .menuBox,
+        header #mobile.view .menuBg
+        {
+            transform: translateX(0%);
+            opacity: 1;
+        }
+        header #mobile .menuBox ul{
+            padding: 50px 0px 0px;
+        }
+        header #mobile .menuBox ul li{
+            width: 100%;
+            padding: 10px 0px 10px;
+        }
+        header #mobile .menuBg{
+            width: 100%;
+            background-color: #000c;
+            z-index: 998;
+            transition: opacity .8s 0s, transform 0s .8s;
+        }
+        header #mobile.view .menuBg{
+            transition: opacity .8s 0s, transform 0s 0s;
+        }
+        main .section{
+            padding: 60px 0px 100px;
+        }
+        main .section.brown{
+            background-color: #f9f5f3;
+            color: #644234;
+        }
+        main .section.view .wrap{
+            opacity: 1;
+            transform: translateY(0px);
+        }
+        main .section .wrap{
+            opacity: 0;
+            transform: translateY(60px);
+            transition: all .3s 0s;
+            position: relative;
+        }
+        main #page01{
+            height:95vh;
+        }
+        main #page01 .wrap{
+            height: 100%;
+            position: relative;
+        }
+        main #page01 .grid{
+            height: 100%;
+        }
+        main #page01 .grid .title{
+            width: 100%;
+        }
+        main #page01 .grid .title .name{
+            font-size: 2rem;
+            vertical-align: bottom;
+            font-weight: 300;
+        }
+        main #page01 .grid .title .name span{
+            font-weight: bold;
+            color: var(--main-brown-color);
+        }
+        main #page01 .grid .title .sub{
+            margin-top: 10px;
+            font-weight: 100;
+        }
+        main #page01 .grid .right{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+        main #page01 .grid .right .img{
+            background-image: url(img/userimg.png);
+            width: 400px;
+            height: 500px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 90%;
+        }    
+        main #page02 .grid{
+            padding: 40px 40px 60px;
+            background-color: var(--main-white-color);
+            border-radius: 10%;
+        }
+        main #page02 .grid .left{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        main #page02 .grid .left .img{
+            background-image: url(img/index.page02.jpg);
+            width: 450px;
+            min-height: 450px;
+            position: relative;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size:70%;
+            transition: all .3s 0s;
+        }
+        main #page02 .grid .left .title{
+            padding: 10px 20px 10px;
+        }
+         main #page02 .grid .left .title .name{
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        main #page02 .grid .right > .list > li{
+            display: inline-block;
+            width: 100%;
+            margin-top: 30px;
+            padding: 0px 30px 0px;
+            text-align: left;
+        }
+        main #page02 .grid .right .list .sub{
+            line-height: 30px;
+            vertical-align: bottom;
+        }
+        main #page02 .grid .right > .list .text{
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        main #page02 .grid .right .list .sub{
+            font-weight: 300;
+        }
+        main #page02 .grid .right .list .sub span{
+            margin-right: 10px;
+        }
+        main #page02 .grid .right .list li > span{
+            padding: 10px 8px 0px;
+        }
+        main #page03 .grid{
+            grid-template-columns: 500px 1fr;
+        }
+        main #page03 .grid li{
+            height: 100%;
+        }
+        main #page03 .grid li .left{
+            position: sticky;
+            top: 0px;
+            left: 0px;
+            z-index: 9;
+        }
+        main #page03 .grid li .left .title{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        main #page03 .grid li .left .title .name{
+            width: 100%;
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--main-brown-color);
+        }
+        main #page03 .grid li .right{
+            opacity: 0;
+            transform: translateY(80px);
+            transition: all .1s 0s;
+            margin: 230px 0px;
+        }
+        main #page03 .grid li .right.on{
+            opacity: 1;
+            transform: translateY(0px);
+        }
+        main #page03 .grid li .right.off{
+            opacity: 0;
+            transform: translateY(80px);
+            transition: all 1s 0s;
+            margin: 230px 0px;
+        }
+        
+        main #page03 .grid li .right .title{
+            text-align: left;
+        }
+        main #page03 .grid li .right .name{
+            font-size: 2rem;
+            font-weight: bold;
+            width: 100%;
+            color: var(--main-brown-color);
+        }
+        main #page03 .grid li .right .text{
+            width: 100%;
+            font-weight: 200;
+            margin-top: 10px;
+            font-size: 18px;
+        }
+         main #page04 .wrap{
+            position: relative;
+        }
+        main #page04 .swiper .swiper-slide{
+            background-size: cover;
+            background-repeat: no-repeat;
+            width: 100%;
+            height: 650px;
+            position: relative;
+            cursor: pointer;
+            transition: all .5s 0s;
+            background-position: top;
+        }
+        main #page04 .swiper .swiper-slide:hover{
+            background-color: #111c;
+            background-blend-mode: multiply;
+            background-position: center;
+        }
+        main #page04 .swiper .swiper-slide a{
+            width: 100%;
+            height: 100%;
+        }
+        main #page04 .swiper .swiper-slide .img{
+            width: 100%;
+        }
+        main #page04 .swiper .swiper-slide .img .title{
+            text-align: left;
+            padding:20px;
+        }
+        main #page04 .swiper .swiper-slide .img .title .name{
+            font-weight: bold;
+            color: transparent;
+            font-size: 18px;
+            transition: all .3s 0s;
+        }
+        main #page04 .swiper .swiper-slide:hover .img .title .name{
+            color: white;
+        }
+        main #page04 .swiper .swiper-slide .button{
+            position: absolute;
+            bottom: 0px;
+            width: 100%;
+            background-color: var(--main-brown-color);
+            line-height: 50px;
+            font-weight: bold;
+            color: #fff;
+        }
+        main #page04 .swiper .swiper-slide:nth-child(1){
+            background-image: url(img/Mgccoffee.png);
+        }
+        main #page04 .swiper .swiper-slide:nth-child(2){
+            background-image: url(img/hind.png);
+        }
+        main #page04 .swiper .swiper-slide:nth-child(3){
+            background-image: url(img/Mgccoffee.png);
+        }
+        main #page04 .swiper .swiper-slide:nth-child(4){
+            background-image: url(img/Mgccoffee.png);
+        }
+        main #page04 .arrow{
+            position:absolute;
+            top: 50%;
+            z-index: 9;
+            font-size: 30px;
+            cursor: pointer;
+            transform: translateY(-50%);
+        }
+        main #page04 .arrow.left{
+            left:-40px;
+        }
+        main #page04 .arrow.right{
+            right: -40px;
+        }
+        main #page04 .swiper-pagination{
+            position: static;
+        }
+        main #page04 .swiper-pagination-bullet{
+            width: 10px;
+            height: 10px;
+            background-color: var(--main-brown-color);
+        }
+
+        main #page05 .grid{
+            grid-gap: 20px;
+        }
+        main #page05 .grid li{
+            width: 100%;
+        }
+        main #page05 .title .name{
+            color: var(--main-brown-color);
+        }
+        main #page05 .grid li .text span{
+            font-weight: bold;
+            font-size: 1.5rem;
+            color: var(--main-brown-color);
+        }
+        main #page05 .grid li form .link{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-gap: 5px;
+        }
+        main #page05 .grid li form input[type="text"]{
+            margin-bottom: 5px;
+            width: 100%;
+            border: 1px solid #ccc;
+            color: var(--main-black-clolor);
+        }
+        main #page05 .grid li form textarea{
+            width: 100%;
+            height: 350px;
+            border: 1px solid #ccc;
+            color: var(--main-black-clolor);
+            padding: 10px;
+            margin-bottom: 5px;
+        }
+        main #page05 .grid li form input[type="submit"]{
+            background-color:var(--main-brown-color);
+            color: var(--main-white-color);
+            border: none;
+            font-weight: bold;
+            width: 100%;
+            cursor: pointer;
+        }
+        main #page05 .grid li form input[type="submit"]:hover{
+            background-color:var(--main-beige-color);
+        }
+        footer{
+            background-color: var(--main-brown-color);
+            padding: 80px 0px 80px;
+            min-height: 200px;
+        }
+        footer .footer{
+            color: var(--main-white-color);
+            font-size: 14px;
+            opacity: .7;
+            padding-top: 40px;
+        }
+        footer .text{
+            font-size: 13px;
+        }
+        @media only screen and (max-width:1200px){
+        }
+        @media only screen and (max-width:1000px){
+        }
+        @media only screen and (max-width:800px){
+            main #page01 .grid{
+                grid-template-columns: 1fr;
+            }
+            main #page01 .grid .title{
+                padding: 25px 0px 20px;
+            }
+            main #page02 .grid{
+                grid-template-columns: 1fr;
+                max-width: 550px;
+            }
+            main #page03 .grid{
+                grid-template-columns: 1fr;
+            }
+            main #page03 .grid li .left .title{
+                height: 20vh;
+            }
+            main #page05 .grid{
+                grid-template-columns: 1fr;
+                max-width: 500px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="wrap">
+            <div class="flex">
+                <a href="#" id="logo">
+                    <h1>로고</h1>
+                </a>
+                <nav id="menu" class="pc">
+                    <ul>
+                        <li><a href="#page01">HOME</a></li>
+                        <li><a href="#page02">PROFILE</a></li>
+                        <li><a href="#page03">SKILL</a></li>
+                        <li><a href="#page04">PORTFOLIO</a></li>
+                        <li><a href="#page05">CONTACT</a></li>
+                    </ul>
+                </nav>
+                <nav id="mobile" class="mobile">
+                    <div class="button">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <div class="menuBox">
+                        <ul>
+                            <li><a href="#page01">HOME</a></li>
+                            <li><a href="#page02">PROFILE</a></li>
+                            <li><a href="#page03">SKILL</a></li>
+                            <li><a href="#page04">PORTFOLIO</a></li>
+                            <li><a href="#page05">CONTACT</a></li>
+                        </ul>
+                    </div>
+                    <div class="menuBg"></div>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <main>
+        <section id="page01" class="section">
+            <div class="wrap">
+                <div class="grid">
+                    <div class="title">
+                        <div class="name">
+                            도전하고 성장하는, <br>
+                            <span>WEB PUBLISHER</span> 최민정입니다.
+                        </div>
+                        <div class="sub">
+                            웹 디자인, CSS, 반응형 웹 제작 등으로 적극적으로 소통하며,<br> 
+                            사용자 요구에 따른 웹사이트를 효율적으로 제작하겠습니다.
+                        </div>
+                    </div>
+                    <div class="right">
+                        <div class="img"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="page02" class="section brown">
+            <div class="wrap">
+                <div class="title">
+                        <div class="name">About Me</div>
+                </div>
+                <div class="grid">
+                    <div class="left">
+                        <div class="img"></div>    
+                        <div class="title">
+                            <div class="name">최민정</div>
+                        </div>       
+                    </div>
+                    <div class="right">
+                        <ul class="list">
+                            <li>
+                                <div class="text">PROFILE</div>
+                                <div class="sub">최민정 / CHOI MIN JOUNG</div>
+                                <div class="sub">99.08.21 / anio27832@gmail.com</div>                
+                            </li>
+                            <li>
+                                <div class="text">EDUCATION</div>
+                                <div class="sub"><span>2021.03 - 2022.02</span>배화여자대학교 스마트IT과(4년) 졸업</div>
+                                <div class="sub"><span>2018.03 - 2020.02</span>배화여자대학교 스마트IT과(2,3년) 졸업</div>
+                                <div class="sub"><span>2023.07 - 2023.12</span>풀스택 자바 웹개발자 양성과정 수료</div>
+                            </li>
+                            <li>
+                                <div class="text">LICENSE</div>
+                                <div class="sub"><span>2024</span>정보처리기사</div>
+                                <div class="sub"><span>2024</span>2종보통운전면허</div>
+                            </li>
+                            <li>
+                                <div class="text">SKILLS</div>                                    
+                                <span><i class="fa-brands fa-html5 fa-2xl" style="color: #63E6BE;"></i></span>
+                                <span><i class="fa-brands fa-css fa-2xl" style="color: #74C0FC;"></i></span>
+                                <span><i class="fa-brands fa-js fa-2xl" style="color: #FFD43B;"></i></span>   
+                                <span><i class="fa-brands fa-react fa-2xl" style="color: #74C0FC;"></i></span>
+                                <span><i class="fa-brands fa-bootstrap fa-2xl" style="color: #B197FC;"></i></span>
+                                <span><i class="fa-brands fa-github fa-2xl"></i></span>
+                            </li>
+                         </ul>
+                    </div>
+                </div>
+            </div>    
+        </section>
+
+        <section id="page03" class="section">
+            <div class="wrap">
+                <ul class="grid">
+                    <li>
+                        <div class="left">
+                            <div class="title">
+                                <div class="name">SKILL</div>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="right off">
+                            <div class="title">
+                                <div class="name">HTML</div>
+                                <div class="text">마크업 랭귀지를 준수하여 홈페이지를 작성하고<br>
+                                    웹표준과 웹접근성을 준수하여 완성할 수 있습니다.<br>
+                                    SEO 검색엔진 최적화를 통해 상위노출하는 법을 배웠습니다. 
+                                </div>
+                            </div>
+                        </div>
+                        <div class="right off">
+                            <div class="title">
+                                <div class="name">CSS</div>
+                                <div class="text">구조자 선택자를 활용하여 중첩되는 클래스와<br>
+                                    지정된 아이디를 적절히 작업하여 반복적인 코딩을 줄였습니다.<br>
+                                    flex와 grid를 통해 반응형 홈페이지를 효율적으로 만들 수 있습니다.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="right off">
+                            <div class="title">
+                                <div class="name">Javascript</div>
+                                <div class="text">function의 응용 및 구조를 배워 코딩의 핵심 구조를 배웠습니다.<br>
+                                    웹 페이지 동작에 필요한 스크립트 언어를 작성할 수 있습니다.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="right off">
+                            <div class="title">
+                                <div class="name">Jquery</div>
+                                <div class="text">html과 css를 응용하여 쉽고 간단한 jquery를 사용하여<br>
+                                    효과적인 기능을 만드는 것을 배웠습니다.<br>
+                                    오픈 소스의 활용과 사용자의 이벤트의 따른 동작에 필요한 기능을 구현합니다.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="right off">
+                            <div class="title">
+                                <div class="name">ReactJS</div>
+                                <div class="text">React Hooks를 활용한 컴포넌트 기반 개발이 가능하고<br>
+                                    API 연동 및 처리가 가능합니다.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="right off">
+                            <div class="title">
+                                <div class="name">Bootstrap</div>
+                                <div class="text">Grid 시스템 활용하여 다양한 화면 크기에 대한 대응 방법을 배웠으며,<br>
+                                    React와 함께 Bootstrap 사용 경험이 있습니다.
+                                </div>
+                            </div>
+                        </div>
+                        <div class="right off">
+                            <div class="title">
+                                <div class="name">MongoDB</div>
+                                <div class="text">CRUD 연산을 활용한 데이터 관리와 Mongoose 라이브러리를 사용하여<br>
+                                Node.js 애플리케이션과 MongoDB 통합하는 방법을 배웠습니다. 
+                                </div>
+                            </div>
+                        </div>
+                        <div class="right off">
+                            <div class="title">
+                                <div class="name">Github</div>
+                                <div class="text">소스 코드 버전 관리 및 협업이 가능하고<br>
+                                    Github를 사용한 프로젝트 관리 경험이 있습니다.
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    
+        <section id="page04" class="section brown">
+            <div class="wrap">
+                <div class="title">
+                    <div class="name">PORTFOLIO</div>
+                </div>
+                <div class="swiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"  style="width:567px;">
+                            <a href="https://kjh27ss.github.io/Mgccoffee/">
+                                <div class="img">
+                                    <div class="title">
+                                        <div class="name">Mgccoffee</div>
+                                    </div>
+                                </div>
+                                <div class="button">이동하기</div>
+                            </a>
+                        </div>
+                        <div class="swiper-slide"  style="width:567px";>
+                            <a href="https://hospitalweb-f4342.web.app">
+                                <div class="img">
+                                    <div class="title">
+                                        <div class="name">HIND</div>
+                                    </div>
+                                </div>
+                                <div class="button">이동하기</div>
+                            </a>
+                        </div>
+                        <div class="swiper-slide"  style="width:567px";>
+                            <a href="https://kjh27ss.github.io/Mgccoffee/">
+                                <div class="img">
+                                    <div class="title">
+                                        <div class="name">HIND</div>
+                                    </div>
+                                </div>
+                                <div class="button">이동하기</div>
+                            </a>
+                        </div>
+                        <div class="swiper-slide"  style="width:567px";>
+                            <a href="https://kjh27ss.github.io/Mgccoffee/">
+                                <div class="img">
+                                    <div class="title">
+                                        <div class="name">Mgccoffee</div>
+                                    </div>
+                                </div>
+                                <div class="button">이동하기</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <i class="fa-solid fa-angle-left arrow left" style="color:black;"></i>
+                <i class="fa-solid fa-angle-right arrow right" style="color:black;"></i>
+                <div class="swiper-pagination"></div>
+            </div>       
+        </section>
+
+        <section id="page05" class="section">
+            <div class="wrap">
+                <div class="title">
+                    <div class="name">CONTACT</div>
+                </div>
+                <ul class="grid">
+                    <li>
+                        <div class="text">
+                            <span>저의 포트폴리오를 읽어주셔서 감사합니다.</span>
+                            <br>
+                        </div>
+                    </li>
+                    <li>
+                        <form action="./mail/mail.php" method="post">
+                            <div class="link">
+                                <input type="text" name="names" placeholder="Name">
+                                <input type="text" name="email" placeholder="E-mail">
+                            </div>
+                            <textarea name="text" placeholder="Content"></textarea>
+                            <input type="submit" value="전송">
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="footer">
+            <div class="sub">상업적 목적이 아닌 개인 포트폴리오용으로 제작되었습니다.</div>
+            <div class="text">&copy 2025 mjoung All Rights Reserved.</div>
+        </div>
+    </footer>
+</body>
+<script>
+        const page04 = new Swiper("main #page04 .swiper",{
+            slidesPerView:1,
+
+            spaceBetween:10,
+
+            breakpoints:{
+                600:{
+                    slidesPerView: 1,
+                },
+                800:{
+                    slidesPerView:2,
+                },
+                1000:{
+                    slidesPerView:3,
+                }
+            },
+
+            pagination:{
+                el: "#page04 .swiper-pagination",
+                clickable:true,
+            },
+
+            navigation:{
+                nextEl: "#page04 .right",
+                prevEl: "#page04 .left",
+            },
+        })
+
+        $("header #mobile .button").on("click", function(){
+            $("header #mobile").toggleClass("view");
+        });
+        $("header #mobile .menuBox li a").on("click", function(){
+            $("header #mobile").removeClass("view");
+        });
+        $("header #mobile .menuBg").on("click", function(){
+            $("header #mobile").removeClass("view");
+        });
+</script>
+</html>
