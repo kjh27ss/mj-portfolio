@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
+
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="lib/setup.css">
-    <link rel="stylesheet" href="lib/index.css">
     <script src="lib/jquery.js"></script>
     <script src="lib/setup.js"></script>
 
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
 
     <!-- swiper -->
-    <link  rel="stylesheet"  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     <!-- fontawsome -->
@@ -18,11 +18,12 @@
     <title>MINJOUNG PORTFOLIO</title>
 
     <style>
-        body{
+        body {
             font-family: 'Noto Sans KR', sans-serif;
             font-weight: 400;
         }
-        header{
+
+        header {
             position: fixed;
             width: 100%;
             z-index: 99;
@@ -30,80 +31,116 @@
             left: 0px;
             transition: all .3s 0s;
         }
-        header.view{
+
+        header.view {
             background-color: #644234cc;
-            color: var(--main-white-color);
+            color: #fefefe;
         }
-        header.view:hover{
-            background-color: var(--main-brown-color);
+
+        header.view:hover {
+            background-color: #644234;
         }
-        header #logo h1{
+
+        header #logo h1 {
             font-size: 0px;
             background-image: url(img/logo.svg);
             background-size: 100px;
+            background-repeat: no-repeat;
+            background-position: center;
             width: 200px;
             height: 80px;
             transition: all .3s 0s;
         }
-        header.view #logo h1{
+
+        header.view #logo h1 {
             filter: contrast(0.5) brightness(5);
         }
-        header.view #menu > ul > li > a{
+
+        header.view #menu>ul>li>a {
             color: var(--main-white-color);
         }
-        header #menu > ul > li > a{
+
+        header #menu>ul {
+            display: flex;
+            justify-content: center;
+        }
+
+        header #menu>ul>li {
+            display: block;
+        }
+
+        header #menu>ul>li>a {
             margin: 0px 5px;
             font-size: 20px;
             line-height: 70px;
             padding: 0px 10px;
             position: relative;
-            color: var(--main-brown-color);
+            color: #644234;
             font-weight: bold;
         }
-        header #mobile .button{
+
+        header #menu .pc ul li a {
+            padding: 0px 15px;
+            line-height: 40px;
+        }
+
+        header #mobile .button {
             width: 50px;
             height: 50px;
             position: relative;
             z-index: 9999;
         }
-        header #mobile .button span{
+
+        header #mobile .button span {
             width: 20px;
             height: 2px;
-            background-color: var(--main-brown-color);
-            position:absolute;
+            background-color: #644234;
+            position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
             transition: all .4s 0s;
         }
-        header.view #mobile .button span{
+
+        header.view #mobile .button span {
             background-color: white;
         }
-        header #mobile .button span:nth-child(1){
-            transform: translate(-50%,-50%) translateY(-7px);
+
+        header.view #mobile.view .button span {
+            background-color: #644234;
         }
-        header #mobile .button span:nth-child(3){
-            transform: translate(-50%,-50%) translateY(7px);
+
+        header #mobile .button span:nth-child(1) {
+            transform: translate(-50%, -50%) translateY(-7px);
         }
-        header #mobile.view .button span:nth-child(1){
-            transform: translate(-50%,-50%) rotate(-45deg);
+
+        header #mobile .button span:nth-child(3) {
+            transform: translate(-50%, -50%) translateY(7px);
         }
-        header #mobile.view .button span:nth-child(2){
-            transform: translate(-50%,-50%);
+
+        header #mobile.view .button span:nth-child(1) {
+            transform: translate(-50%, -50%) rotate(-45deg);
+        }
+
+        header #mobile.view .button span:nth-child(2) {
+            transform: translate(-50%, -50%);
             opacity: 0;
         }
-        header #mobile.view .button span:nth-child(3){
-            transform: translate(-50%,-50%) rotate(45deg);
+
+        header #mobile.view .button span:nth-child(3) {
+            transform: translate(-50%, -50%) rotate(45deg);
         }
-        header #mobile .menuBox{
+
+        header #mobile .menuBox {
             width: 270px;
             background-color: var(--main-white-color);
             color: #222;
             z-index: 999;
-            transition: opacity .6s 0s, transform .4s 0s; 
+            transition: opacity .6s 0s, transform .4s 0s;
         }
+
         header #mobile .menuBox,
-        header #mobile .menuBg{
+        header #mobile .menuBg {
             position: fixed;
             top: 0px;
             right: 0px;
@@ -111,146 +148,194 @@
             transform: translateX(100%);
             opacity: 0;
         }
+
         header #mobile.view .menuBox,
-        header #mobile.view .menuBg
-        {
+        header #mobile.view .menuBg {
             transform: translateX(0%);
             opacity: 1;
         }
-        header #mobile .menuBox ul{
+
+        header #mobile .menuBox ul {
             padding: 50px 0px 0px;
         }
-        header #mobile .menuBox ul li{
+
+        header #mobile .menuBox ul li {
             width: 100%;
             padding: 10px 0px 10px;
         }
-        header #mobile .menuBg{
+
+        header #mobile .menuBg {
             width: 100%;
             background-color: #000c;
             z-index: 998;
             transition: opacity .8s 0s, transform 0s .8s;
         }
-        header #mobile.view .menuBg{
+
+        header #mobile.view .menuBg {
             transition: opacity .8s 0s, transform 0s 0s;
         }
-        main .section.brown{
+
+        main .section.brown {
             background-color: #f9f5f3;
             color: #644234;
         }
-        main .section.view .wrap{
+
+        main .section {
+            padding: 40px 0px 60px;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            position: relative;
+        }
+
+        main .section.view .wrap {
             opacity: 1;
             transform: translateY(0px);
         }
-        main .section .wrap{
+
+        main .section .wrap {
             opacity: 0;
             transform: translateY(60px);
             transition: all .3s 0s;
             position: relative;
         }
-        main #page01{
-            height:95vh;
+
+        main .section .wrap>.title {
+            margin-bottom: 50px;
         }
-        main #page01 .wrap{
+
+        main .section .wrap>.title .name {
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+        main #page01 {
+            height: 100vh;
+        }
+
+        main #page01 .wrap {
             height: 100%;
             position: relative;
         }
-        main #page01 .grid{
+
+        main #page01 .grid {
             height: 100%;
         }
-        main #page01 .grid .title{
+
+        main #page01 .grid .title {
             width: 100%;
         }
-        main #page01 .grid .title .name{
+
+        main #page01 .grid .title .name {
             font-size: 2rem;
             vertical-align: bottom;
             font-weight: 300;
         }
-        main #page01 .grid .title .name span{
+
+        main #page01 .grid .title .name span {
             font-weight: bold;
             color: var(--main-brown-color);
         }
-        main #page01 .grid .title .sub{
+
+        main #page01 .grid .title .sub {
             margin-top: 10px;
             font-weight: 100;
         }
-        main #page01 .grid .right{
-            width: 100%;
+
+        main #page01 .grid .right {
             display: flex;
             justify-content: center;
         }
-        main #page01 .grid .right .img{
+
+        main #page01 .grid .right .img {
             background-image: url(img/userimg.png);
-            width: 400px;
+            max-width: 400px;
+            width: 100%;
             height: 500px;
             background-position: center;
             background-repeat: no-repeat;
             background-size: 90%;
-        }    
-        main #page02 .grid{
+        }
+
+        main #page02 .grid {
             padding: 40px 40px 60px;
             background-color: var(--main-white-color);
             border-radius: 10%;
         }
-        main #page02 .grid .left{
+
+        main #page02 .grid .left {
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
         }
-        main #page02 .grid .left .img{
+
+        main #page02 .grid .left .img {
             background-image: url(img/index.page02.jpg);
             width: 450px;
             min-height: 450px;
             position: relative;
             background-position: center;
             background-repeat: no-repeat;
-            background-size:70%;
+            background-size: 70%;
             transition: all .3s 0s;
         }
-        main #page02 .grid .left .title{
+
+        main #page02 .grid .left .title {
             padding: 10px 20px 10px;
         }
-         main #page02 .grid .left .title .name{
+
+        main #page02 .grid .left .title .name {
             font-size: 1.2rem;
             font-weight: bold;
         }
-        main #page02 .grid .right > .list > li{
+
+        main #page02 .grid .right>.list>li {
             display: inline-block;
             width: 100%;
             margin-top: 30px;
             padding: 0px 30px 0px;
             text-align: left;
         }
-        main #page02 .grid .right .list .sub{
+
+        main #page02 .grid .right .list .sub {
             line-height: 30px;
             vertical-align: bottom;
         }
-        main #page02 .grid .right > .list .text{
+
+        main #page02 .grid .right>.list .text {
             font-weight: bold;
             margin-bottom: 10px;
         }
-        main #page02 .grid .right .list .sub{
+
+        main #page02 .grid .right .list .sub {
             font-weight: 300;
         }
-        main #page02 .grid .right .list .sub span{
+
+        main #page02 .grid .right .list .sub span {
             margin-right: 10px;
         }
-        main #page02 .grid .right .list li > span{
+
+        main #page02 .grid .right .list li>span {
             padding: 10px 8px 0px;
         }
-        main #page03 .grid{
+
+        main #page03 .grid {
             grid-template-columns: 500px 1fr;
         }
-        main #page03 .grid li{
+
+        main #page03 .grid li {
             height: 100%;
         }
-        main #page03 .grid li .left{
+
+        main #page03 .grid li .left {
             position: sticky;
             top: 0px;
             left: 0px;
             z-index: 9;
         }
-        main #page03 .grid li .left .title{
+
+        main #page03 .grid li .left .title {
             width: 100%;
             height: 100vh;
             display: flex;
@@ -258,48 +343,56 @@
             justify-content: center;
             align-items: center;
         }
-        main #page03 .grid li .left .title .name{
+
+        main #page03 .grid li .left .title .name {
             width: 100%;
             font-size: 3rem;
             font-weight: bold;
             color: var(--main-brown-color);
         }
-        main #page03 .grid li .right{
+
+        main #page03 .grid li .right {
             opacity: 0;
             transform: translateY(80px);
             transition: all .1s 0s;
             margin: 230px 0px;
         }
-        main #page03 .grid li .right.on{
+
+        main #page03 .grid li .right.on {
             opacity: 1;
             transform: translateY(0px);
         }
-        main #page03 .grid li .right.off{
+
+        main #page03 .grid li .right.off {
             opacity: 0;
             transform: translateY(80px);
             transition: all 1s 0s;
             margin: 230px 0px;
         }
-        
-        main #page03 .grid li .right .title{
+
+        main #page03 .grid li .right .title {
             text-align: left;
         }
-        main #page03 .grid li .right .name{
+
+        main #page03 .grid li .right .name {
             font-size: 2rem;
             font-weight: bold;
             width: 100%;
             color: var(--main-brown-color);
         }
-        main #page03 .grid li .right .text{
+
+        main #page03 .grid li .right .text {
             width: 100%;
             font-weight: 200;
             margin-top: 10px;
             font-size: 18px;
         }
-         main #page04 .wrap{
+
+        main #page04 .wrap {
             position: relative;
         }
-        main #page04 .swiper .swiper-slide{
+
+        main #page04 .swiper .swiper-slide {
             background-size: cover;
             background-repeat: no-repeat;
             width: 100%;
@@ -309,32 +402,40 @@
             transition: all .5s 0s;
             background-position: top;
         }
-        main #page04 .swiper .swiper-slide:hover{
+
+        main #page04 .swiper .swiper-slide:hover {
             background-color: #111c;
             background-blend-mode: multiply;
             background-position: center;
         }
-        main #page04 .swiper .swiper-slide a{
+
+        main #page04 .swiper .swiper-slide a {
+            display: block;
             width: 100%;
             height: 100%;
         }
-        main #page04 .swiper .swiper-slide .img{
+
+        main #page04 .swiper .swiper-slide .img {
             width: 100%;
         }
-        main #page04 .swiper .swiper-slide .img .title{
+
+        main #page04 .swiper .swiper-slide .img .title {
             text-align: left;
-            padding:20px;
+            padding: 20px;
         }
-        main #page04 .swiper .swiper-slide .img .title .name{
+
+        main #page04 .swiper .swiper-slide .img .title .name {
             font-weight: bold;
             color: transparent;
             font-size: 18px;
             transition: all .3s 0s;
         }
-        main #page04 .swiper .swiper-slide:hover .img .title .name{
+
+        main #page04 .swiper .swiper-slide:hover .img .title .name {
             color: white;
         }
-        main #page04 .swiper .swiper-slide .button{
+
+        main #page04 .swiper .swiper-slide .button {
             position: absolute;
             bottom: 0px;
             width: 100%;
@@ -343,142 +444,186 @@
             font-weight: bold;
             color: #fff;
         }
-        main #page04 .swiper .swiper-slide:nth-child(1){
+
+        main #page04 .swiper .swiper-slide:nth-child(1) {
             background-image: url(img/blackfriday.png);
         }
-        main #page04 .swiper .swiper-slide:nth-child(2){
+
+        main #page04 .swiper .swiper-slide:nth-child(2) {
             background-image: url(img/blackbird.png);
         }
-        main #page04 .swiper .swiper-slide:nth-child(3){
+
+        main #page04 .swiper .swiper-slide:nth-child(3) {
             background-image: url(img/mamongde.png);
         }
-        main #page04 .swiper .swiper-slide:nth-child(4){
+
+        main #page04 .swiper .swiper-slide:nth-child(4) {
             background-image: url(img/Mgccoffee.png);
         }
-        main #page04 .swiper .swiper-slide:nth-child(5){
+
+        main #page04 .swiper .swiper-slide:nth-child(5) {
             background-image: url(img/hind.png);
         }
-        main #page04 .swiper .swiper-slide:nth-child(6){
+
+        main #page04 .swiper .swiper-slide:nth-child(6) {
             background-image: url(img/Shopcart.png);
         }
-        main #page04 .swiper .swiper-slide:nth-child(7){
+
+        main #page04 .swiper .swiper-slide:nth-child(7) {
             background-image: url(img/recipe.png);
         }
-        main #page04 .swiper .swiper-slide:nth-child(8){
+
+        main #page04 .swiper .swiper-slide:nth-child(8) {
             background-image: url(img/todo-web.png);
         }
-        main #page04 .swiper .swiper-slide:nth-child(9){
+
+        main #page04 .swiper .swiper-slide:nth-child(9) {
             background-image: url(img/weatherweb.png);
         }
-        main #page04 .arrow{
-            position:absolute;
+
+        main #page04 .arrow {
+            position: absolute;
             top: 50%;
             z-index: 9;
             font-size: 30px;
             cursor: pointer;
             transform: translateY(-50%);
         }
-        main #page04 .arrow.left{
-            left:-40px;
+
+        main #page04 .arrow.left {
+            left: -40px;
         }
-        main #page04 .arrow.right{
+
+        main #page04 .arrow.right {
             right: -40px;
         }
-        main #page04 .swiper-pagination{
+
+        main #page04 .swiper-pagination {
             position: static;
         }
-        main #page04 .swiper-pagination-bullet{
+
+        main #page04 .swiper-pagination-bullet {
             width: 10px;
             height: 10px;
             background-color: var(--main-brown-color);
         }
 
-        main #page05 .grid{
+        main #page05 .grid {
             grid-gap: 20px;
         }
-        main #page05 .grid li{
+
+        main #page05 .grid li {
             width: 100%;
         }
-        main #page05 .title .name{
+
+        main #page05 .title .name {
             color: var(--main-brown-color);
         }
-        main #page05 .grid li .text span{
+
+        main #page05 .grid li .text span {
             font-weight: bold;
             font-size: 1.5rem;
             color: var(--main-brown-color);
         }
-        main #page05 .grid li form .link{
+
+        main #page05 .grid li form .link {
             display: grid;
             grid-template-columns: 1fr 1fr;
             grid-gap: 5px;
         }
-        main #page05 .grid li form input[type="text"]{
+
+        main #page05 .grid li form input[type="text"] {
             margin-bottom: 5px;
             width: 100%;
             border: 1px solid #ccc;
-            color: var(--main-black-clolor);
+            color: var(--main-black-color);
         }
-        main #page05 .grid li form textarea{
+
+        main #page05 .grid li form textarea {
             width: 100%;
             height: 350px;
             border: 1px solid #ccc;
-            color: var(--main-black-clolor);
+            color: var(--main-black-color);
             padding: 10px;
             margin-bottom: 5px;
         }
-        main #page05 .grid li form input[type="submit"]{
-            background-color:var(--main-brown-color);
+
+        main #page05 .grid li form input[type="submit"] {
+            background-color: var(--main-brown-color);
             color: var(--main-white-color);
             border: none;
             font-weight: bold;
             width: 100%;
             cursor: pointer;
         }
-        main #page05 .grid li form input[type="submit"]:hover{
-            background-color:var(--main-beige-color);
+
+        main #page05 .grid li form input[type="submit"]:hover {
+            background-color: var(--main-beige-color);
         }
-        footer{
+
+        footer {
             background-color: var(--main-brown-color);
             padding: 80px 0px 80px;
             min-height: 200px;
         }
-        footer .footer{
+
+        footer .footer {
             color: var(--main-white-color);
             font-size: 14px;
             opacity: .7;
             padding-top: 40px;
         }
-        footer .text{
+
+        footer .text {
             font-size: 13px;
         }
-        @media only screen and (max-width:1200px){
-        }
-        @media only screen and (max-width:1000px){
-        }
-        @media only screen and (max-width:800px){
-            main #page01 .grid{
+
+        @media only screen and (max-width:1200px) {}
+
+        @media only screen and (max-width:1000px) {
+            main #page02 .grid {
                 grid-template-columns: 1fr;
+                padding: 60px 0;
             }
-            main #page01 .grid .title{
+        }
+
+        @media only screen and (max-width:800px) {
+            header #menu.pc {
+                display: none;
+            }
+
+            header #mobile {
+                display: block;
+            }
+
+            main #page01 .grid {
+                grid-template-columns: 1fr;
+                padding-top: 50px;
+            }
+
+            main #page01 .grid .right .img {
+                max-width: 300px;
+            }
+
+            main #page01 .grid .title {
                 padding: 25px 0px 20px;
             }
-            main #page02 .grid{
-                grid-template-columns: 1fr;
-                max-width: 550px;
-            }
-            main #page03 .grid{
+
+            main #page03 .grid {
                 grid-template-columns: 1fr;
             }
-            main #page03 .grid li .left .title{
+
+            main #page03 .grid li .left .title {
                 height: 20vh;
             }
-            main #page05 .grid{
+
+            main #page05 .grid {
                 grid-template-columns: 1fr;
-                max-width: 500px;
             }
         }
     </style>
 </head>
+
 <body>
     <header>
         <div class="wrap">
@@ -525,7 +670,7 @@
                             <span>WEB PUBLISHER</span> 최민정입니다.
                         </div>
                         <div class="sub">
-                            웹 디자인, CSS, 반응형 웹 제작 등으로 적극적으로 소통하며,<br> 
+                            웹 디자인, CSS, 반응형 웹 제작 등으로 적극적으로 소통하며,<br>
                             사용자 요구에 따른 웹사이트를 효율적으로 제작하겠습니다.
                         </div>
                     </div>
@@ -538,21 +683,21 @@
         <section id="page02" class="section brown">
             <div class="wrap">
                 <div class="title">
-                        <div class="name">About Me</div>
+                    <div class="name">About Me</div>
                 </div>
                 <div class="grid">
                     <div class="left">
-                        <div class="img"></div>    
+                        <div class="img"></div>
                         <div class="title">
                             <div class="name">최민정</div>
-                        </div>       
+                        </div>
                     </div>
                     <div class="right">
                         <ul class="list">
                             <li>
                                 <div class="text">PROFILE</div>
                                 <div class="sub">최민정 / CHOI MIN JOUNG</div>
-                                <div class="sub">99.08.21 / anio27832@gmail.com</div>                
+                                <div class="sub">99.08.21 / anio27832@gmail.com</div>
                             </li>
                             <li>
                                 <div class="text">EDUCATION</div>
@@ -566,18 +711,18 @@
                                 <div class="sub"><span>2024</span>2종보통운전면허</div>
                             </li>
                             <li>
-                                <div class="text">SKILLS</div>                                    
+                                <div class="text">SKILLS</div>
                                 <span><i class="fa-brands fa-html5 fa-2xl" style="color: #63E6BE;"></i></span>
                                 <span><i class="fa-brands fa-css fa-2xl" style="color: #74C0FC;"></i></span>
-                                <span><i class="fa-brands fa-js fa-2xl" style="color: #FFD43B;"></i></span>   
+                                <span><i class="fa-brands fa-js fa-2xl" style="color: #FFD43B;"></i></span>
                                 <span><i class="fa-brands fa-react fa-2xl" style="color: #74C0FC;"></i></span>
                                 <span><i class="fa-brands fa-bootstrap fa-2xl" style="color: #B197FC;"></i></span>
                                 <span><i class="fa-brands fa-github fa-2xl"></i></span>
                             </li>
-                         </ul>
+                        </ul>
                     </div>
                 </div>
-            </div>    
+            </div>
         </section>
 
         <section id="page03" class="section">
@@ -594,17 +739,17 @@
                         <div class="right off">
                             <div class="title">
                                 <div class="name">HTML</div>
-                                <div class="text">마크업 랭귀지를 준수하여 홈페이지를 작성하고<br>
-                                    웹표준과 웹접근성을 준수하여 완성할 수 있습니다.<br>
-                                    SEO 검색엔진 최적화를 통해 상위노출하는 법을 배웠습니다. 
+                                <div class="text">마크업 랭귀지를 준수하여 홈페이지를 작성하고
+                                    웹표준과 웹접근성을 준수하여 완성할 수 있습니다.
+                                    SEO 검색엔진 최적화를 통해 상위노출하는 법을 배웠습니다.
                                 </div>
                             </div>
                         </div>
                         <div class="right off">
                             <div class="title">
                                 <div class="name">CSS</div>
-                                <div class="text">구조자 선택자를 활용하여 중첩되는 클래스와<br>
-                                    지정된 아이디를 적절히 작업하여 반복적인 코딩을 줄였습니다.<br>
+                                <div class="text">구조자 선택자를 활용하여 중첩되는 클래스와
+                                    지정된 아이디를 적절히 작업하여 반복적인 코딩을 줄였습니다.
                                     flex와 grid를 통해 반응형 홈페이지를 효율적으로 만들 수 있습니다.
                                 </div>
                             </div>
@@ -612,7 +757,7 @@
                         <div class="right off">
                             <div class="title">
                                 <div class="name">Javascript</div>
-                                <div class="text">function의 응용 및 구조를 배워 코딩의 핵심 구조를 배웠습니다.<br>
+                                <div class="text">function의 응용 및 구조를 배워 코딩의 핵심 구조를 배웠습니다.
                                     웹 페이지 동작에 필요한 스크립트 언어를 작성할 수 있습니다.
                                 </div>
                             </div>
@@ -620,8 +765,8 @@
                         <div class="right off">
                             <div class="title">
                                 <div class="name">Jquery</div>
-                                <div class="text">html과 css를 응용하여 쉽고 간단한 jquery를 사용하여<br>
-                                    효과적인 기능을 만드는 것을 배웠습니다.<br>
+                                <div class="text">html과 css를 응용하여 쉽고 간단한 jquery를 사용하여
+                                    효과적인 기능을 만드는 것을 배웠습니다.
                                     오픈 소스의 활용과 사용자의 이벤트의 따른 동작에 필요한 기능을 구현합니다.
                                 </div>
                             </div>
@@ -629,7 +774,7 @@
                         <div class="right off">
                             <div class="title">
                                 <div class="name">ReactJS</div>
-                                <div class="text">React Hooks를 활용한 컴포넌트 기반 개발이 가능하고<br>
+                                <div class="text">React Hooks를 활용한 컴포넌트 기반 개발이 가능하고
                                     API 연동 및 처리가 가능합니다.
                                 </div>
                             </div>
@@ -637,7 +782,7 @@
                         <div class="right off">
                             <div class="title">
                                 <div class="name">Bootstrap</div>
-                                <div class="text">Grid 시스템 활용하여 다양한 화면 크기에 대한 대응 방법을 배웠으며,<br>
+                                <div class="text">Grid 시스템 활용하여 다양한 화면 크기에 대한 대응 방법을 배웠으며,
                                     React와 함께 Bootstrap 사용 경험이 있습니다.
                                 </div>
                             </div>
@@ -645,15 +790,15 @@
                         <div class="right off">
                             <div class="title">
                                 <div class="name">MongoDB</div>
-                                <div class="text">CRUD 연산을 활용한 데이터 관리와 Mongoose 라이브러리를 사용하여<br>
-                                Node.js 애플리케이션과 MongoDB 통합하는 방법을 배웠습니다. 
+                                <div class="text">CRUD 연산을 활용한 데이터 관리와 Mongoose 라이브러리를 사용하여
+                                    Node.js 애플리케이션과 MongoDB 통합하는 방법을 배웠습니다.
                                 </div>
                             </div>
                         </div>
                         <div class="right off">
                             <div class="title">
                                 <div class="name">Github</div>
-                                <div class="text">소스 코드 버전 관리 및 협업이 가능하고<br>
+                                <div class="text">소스 코드 버전 관리 및 협업이 가능하고
                                     Github를 사용한 프로젝트 관리 경험이 있습니다.
                                 </div>
                             </div>
@@ -662,7 +807,7 @@
                 </ul>
             </div>
         </section>
-    
+
         <section id="page04" class="section brown">
             <div class="wrap">
                 <div class="title">
@@ -670,7 +815,7 @@
                 </div>
                 <div class="swiper">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide"  style="width:567px;">
+                        <div class="swiper-slide" style="width:567px;">
                             <a href="https://www.notion.so/2025-2e915ed86bbb8028b1adcc05581f0706?source=copy_link">
                                 <div class="img">
                                     <div class="title">
@@ -680,7 +825,7 @@
                                 <div class="button">이동하기</div>
                             </a>
                         </div>
-                        <div class="swiper-slide"  style="width:567px;">
+                        <div class="swiper-slide" style="width:567px;">
                             <a href="https://www.notion.so/2e915ed86bbb8062b7f6d8718e1c2a96?source=copy_link">
                                 <div class="img">
                                     <div class="title">
@@ -690,17 +835,17 @@
                                 <div class="button">이동하기</div>
                             </a>
                         </div>
-                        <div class="swiper-slide"  style="width:567px;">
+                        <div class="swiper-slide" style="width:567px;">
                             <a href="https://kjh27ss.github.io/mamonde/">
                                 <div class="img">
                                     <div class="title">
-                                        <div class="name">Manmonde</div>
+                                        <div class="name">Mamonde</div>
                                     </div>
                                 </div>
                                 <div class="button">이동하기</div>
                             </a>
                         </div>
-                        <div class="swiper-slide"  style="width:567px;">
+                        <div class="swiper-slide" style="width:567px;">
                             <a href="https://kjh27ss.github.io/Mgccoffee/">
                                 <div class="img">
                                     <div class="title">
@@ -710,7 +855,7 @@
                                 <div class="button">이동하기</div>
                             </a>
                         </div>
-                        <div class="swiper-slide"  style="width:567px";>
+                        <div class="swiper-slide" style="width:567px" ;>
                             <a href="https://hospitalweb-f4342.web.app">
                                 <div class="img">
                                     <div class="title">
@@ -720,7 +865,7 @@
                                 <div class="button">이동하기</div>
                             </a>
                         </div>
-                        <div class="swiper-slide"  style="width:567px";>
+                        <div class="swiper-slide" style="width:567px" ;>
                             <a href="https://kjh27ss.github.io/shop-cart/">
                                 <div class="img">
                                     <div class="title">
@@ -730,7 +875,7 @@
                                 <div class="button">이동하기</div>
                             </a>
                         </div>
-                        <div class="swiper-slide"  style="width:567px";>
+                        <div class="swiper-slide" style="width:567px" ;>
                             <a href="https://kjh27ss.github.io/recipe_project/">
                                 <div class="img">
                                     <div class="title">
@@ -740,7 +885,7 @@
                                 <div class="button">이동하기</div>
                             </a>
                         </div>
-                        <div class="swiper-slide"  style="width:567px";>
+                        <div class="swiper-slide" style="width:567px" ;>
                             <a href="https://github.com/kjh27ss/todo-web.git">
                                 <div class="img">
                                     <div class="title">
@@ -750,7 +895,7 @@
                                 <div class="button">이동하기</div>
                             </a>
                         </div>
-                        <div class="swiper-slide"  style="width:567px";>
+                        <div class="swiper-slide" style="width:567px" ;>
                             <a href="https://kjh27ss.github.io/weatherweb/">
                                 <div class="img">
                                     <div class="title">
@@ -765,7 +910,7 @@
                 <i class="fa-solid fa-angle-left arrow left" style="color:black;"></i>
                 <i class="fa-solid fa-angle-right arrow right" style="color:black;"></i>
                 <div class="swiper-pagination"></div>
-            </div>       
+            </div>
         </section>
 
         <section id="page05" class="section">
@@ -802,42 +947,42 @@
     </footer>
 </body>
 <script>
-        const page04 = new Swiper("main #page04 .swiper",{
-            slidesPerView:1,
+    const page04 = new Swiper("main #page04 .swiper", {
+        slidesPerView: 1,
+        spaceBetween: 10,
 
-            spaceBetween:10,
-
-            breakpoints:{
-                600:{
-                    slidesPerView: 1,
-                },
-                800:{
-                    slidesPerView:2,
-                },
-                1000:{
-                    slidesPerView:3,
-                }
+        breakpoints: {
+            600: {
+                slidesPerView: 1,
             },
-
-            pagination:{
-                el: "#page04 .swiper-pagination",
-                clickable:true,
+            800: {
+                slidesPerView: 2,
             },
+            1000: {
+                slidesPerView: 3,
+            }
+        },
 
-            navigation:{
-                nextEl: "#page04 .right",
-                prevEl: "#page04 .left",
-            },
-        })
+        pagination: {
+            el: "#page04 .swiper-pagination",
+            clickable: true,
+        },
 
-        $("header #mobile .button").on("click", function(){
-            $("header #mobile").toggleClass("view");
-        });
-        $("header #mobile .menuBox li a").on("click", function(){
-            $("header #mobile").removeClass("view");
-        });
-        $("header #mobile .menuBg").on("click", function(){
-            $("header #mobile").removeClass("view");
-        });
+        navigation: {
+            nextEl: "#page04 .right",
+            prevEl: "#page04 .left",
+        },
+    })
+
+    $("header #mobile .button").on("click", function () {
+        $("header #mobile").toggleClass("view");
+    });
+    $("header #mobile .menuBox li a").on("click", function () {
+        $("header #mobile").removeClass("view");
+    });
+    $("header #mobile .menuBg").on("click", function () {
+        $("header #mobile").removeClass("view");
+    });
 </script>
+
 </html>

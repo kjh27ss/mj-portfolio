@@ -9,7 +9,6 @@
 }
 *:before, *:after{
     box-sizing: border-box;
-    display: inline-block;
 }
 html[theme="white"]:root,:root{
     --main-brown-color:#644234;
@@ -33,21 +32,17 @@ html{
     text-align: center;
 }
 body{
-    display: inline-block;
     width: 100%;
     max-width: 1920px;
     font-weight: 300;
 }
 img{
     max-width: 100%;
-    height: auto;
-    /* border: 0px; */
 }
-ul li, ol li{
-    display: inline-block;
+ul, ol {
+    list-style-type: none; 
 }
 span, a{
-    display: inline-block;
     line-height: inherit;
     font-size: inherit;
     font-weight: inherit;
@@ -58,11 +53,18 @@ a{
     text-decoration: none;
 }
 .wrap{
-    width: 1200px;
-    display: inline-block;
+    width: 100%;             
+    max-width: 1200px;      
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding: 0 30px;
+}
+p,span{
+    word-break: keep-all;
+    overflow-wrap: break-word;
 }
 .flex{
-    display: inline-flex;
+    display: flex;
     justify-content: space-between;
     align-items: center;
     align-content: center;
@@ -70,79 +72,24 @@ a{
     width: 100%;
 }
 .grid{
-    display: inline-grid;
+    display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 0px;
     width: 100%;
     align-items: center;
     align-self: center;
 }
-.pc{
-    display: block !important;
-}
-.mobile{
-    display: none !important;
+
+input{
+    padding: 0px 15px;
+    line-height: 40px;
 }
 
-.x1400,
-.x1200,
-.x1000,
-.x800,
-.x600,
-.x400{
+.pc{
+    display: block;
+}
+.mobile{
     display: none;
 }
 
-@media only screen and (max-width:1400px){
-    br.x1400{
-        display: block;
-    }
-}
-@media only screen and (max-width:1200px){
-    .wrap{
-        width: 100%;
-        padding: 0px 15px;
-    }
-    .pc{
-        display: none !important;
-    }
-    .mobile{
-        display: block !important;
-    }
-    br.x1200{
-        display: block;
-    }
-}
-@media only screen and (max-width:1000px){
-    html{
-        font-size: 15px;
-    }
-    br.x1000{
-        display: block;
-    }
-}
-@media only screen and (max-width:800px){
-    html{
-        font-size: 14px;
-    }
-    br.x800{
-        display: block;
-    }
-}
-@media only screen and (max-width:600px){
-    html{
-        font-size: 13px;
-    }
-    br.x600{
-        display: block;
-    }
 
-}
-@media only screen and (max-width:400px){
-    html{
-        font-size: 12px;
-    }
-    br.x400{
-        display: block;
-    }
-}
