@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="lib/setup.css">
     <script src="lib/jquery.js"></script>
-    <script src="lib/setup.js"></script>
+    <script src="lib/setup.js" defer></script>
 
     <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
 
@@ -598,8 +598,6 @@
             font-size: 13px;
         }
 
-        @media only screen and (max-width:1200px) {}
-
         @media only screen and (max-width:1000px) {
             main #page02 .grid {
                 grid-template-columns: 1fr;
@@ -762,15 +760,15 @@
                             </li>
                             <li>
                                 <div class="text">EDUCATION</div>
-                                <div class="sub"><span>2018.03 - 2020.02</span>배화여자대학교 스마트IT과(2,3년) 졸업</div>
-                                <div class="sub"><span>2021.03 - 2022.02</span>배화여자대학교 스마트IT과(4년) 졸업</div>
-                                <div class="sub"><span>2023.07 - 2023.12</span>풀스택 자바 웹개발자 양성과정 수료</div>
-                                <div class="sub"><span>2025.07 - 2025.11</span>휴넷이지런 인턴</div>
+                                <div class="sub"><span>2018.03 - 2020.02</span> 배화여자대학교 스마트IT과(2,3년) 졸업</div>
+                                <div class="sub"><span>2021.03 - 2022.02</span> 배화여자대학교 스마트IT과(4년) 졸업</div>
+                                <div class="sub"><span>2023.07 - 2023.12</span> 풀스택 자바 웹개발자 양성과정 수료</div>
+                                <div class="sub"><span>2025.07 - 2025.11</span> 휴넷이지런 인턴</div>
                             </li>
                             <li>
                                 <div class="text">LICENSE</div>
-                                <div class="sub"><span>2024</span>정보처리기사</div>
-                                <div class="sub"><span>2024</span>2종보통운전면허</div>
+                                <div class="sub"><span>2024</span> 정보처리기사</div>
+                                <div class="sub"><span>2024</span> 2종보통운전면허</div>
                             </li>
                             <li class="skills">
                                 <div class="text">SKILLS</div>
@@ -1038,15 +1036,6 @@
         },
     })
 
-    $("header #mobile .button").on("click", function () {
-        $("header #mobile").toggleClass("view");
-    });
-    $("header #mobile .menuBox li a").on("click", function () {
-        $("header #mobile").removeClass("view");
-    });
-    $("header #mobile .menuBg").on("click", function () {
-        $("header #mobile").removeClass("view");
-    });
 </script>
 
 </html>
