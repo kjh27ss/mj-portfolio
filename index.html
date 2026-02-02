@@ -91,6 +91,7 @@
         }
 
         header #mobile .button span {
+            display: block;
             width: 20px;
             height: 2px;
             background-color: #644234;
@@ -131,11 +132,17 @@
         }
 
         header #mobile .menuBox {
+            text-align: center;
             width: 270px;
             background-color: #fefefe;
             color: #222;
             z-index: 999;
             transition: opacity .6s 0s, transform .4s 0s;
+        }
+
+        header #mobile .menuBox li a{
+            color: #644234;
+            font-weight: bold;
         }
 
         header #mobile .menuBox,
