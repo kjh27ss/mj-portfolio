@@ -42,7 +42,6 @@
         }
 
         header #logo h1 {
-            font-size: 0px;
             background-image: url(img/logo.svg);
             background-size: 100px;
             background-repeat: no-repeat;
@@ -57,7 +56,7 @@
         }
 
         header.view #menu>ul>li>a {
-            color: var(--main-white-color);
+            color: #fefefe;
         }
 
         header #menu>ul {
@@ -133,7 +132,7 @@
 
         header #mobile .menuBox {
             width: 270px;
-            background-color: var(--main-white-color);
+            background-color: #fefefe;
             color: #222;
             z-index: 999;
             transition: opacity .6s 0s, transform .4s 0s;
@@ -209,6 +208,10 @@
             font-weight: bold;
         }
 
+        main .section .name{
+            text-align: center;
+        }
+
         main #page01 {
             height: 100vh;
         }
@@ -234,7 +237,7 @@
 
         main #page01 .grid .title .name span {
             font-weight: bold;
-            color: var(--main-brown-color);
+            color: #644234;
         }
 
         main #page01 .grid .title .sub {
@@ -259,7 +262,7 @@
 
         main #page02 .grid {
             padding: 40px 40px 60px;
-            background-color: var(--main-white-color);
+            background-color: #fefefe;
             border-radius: 10%;
         }
 
@@ -306,18 +309,24 @@
         main #page02 .grid .right>.list .text {
             font-weight: bold;
             margin-bottom: 10px;
+            line-height: 1.2;
+            position: relative;
+            top: 4px;
         }
 
         main #page02 .grid .right .list .sub {
             font-weight: 300;
         }
 
-        main #page02 .grid .right .list .sub span {
-            margin-right: 10px;
+        main #page02 .grid .right .skills .icons {
+            display: flex;
+            align-items: center;
+            gap: 10px;            
         }
 
-        main #page02 .grid .right .list li>span {
-            padding: 10px 8px 0px;
+        main #page02 .grid .right .skills .icons i {
+            font-size: 1.4rem;
+            line-height: 1;            
         }
 
         main #page03 .grid {
@@ -328,14 +337,14 @@
             height: 100%;
         }
 
-        main #page03 .grid li .left {
+        main #page03 .left {
             position: sticky;
             top: 0px;
             left: 0px;
             z-index: 9;
         }
 
-        main #page03 .grid li .left .title {
+        main #page03 .left .title {
             width: 100%;
             height: 100vh;
             display: flex;
@@ -344,44 +353,46 @@
             align-items: center;
         }
 
-        main #page03 .grid li .left .title .name {
+        main #page03 .left .title .name {
             width: 100%;
             font-size: 3rem;
             font-weight: bold;
-            color: var(--main-brown-color);
+            color: #644234;
+            text-align: left;
         }
 
-        main #page03 .grid li .right {
+        main #page03 .right {
             opacity: 0;
             transform: translateY(80px);
             transition: all .1s 0s;
             margin: 230px 0px;
         }
 
-        main #page03 .grid li .right.on {
+        main #page03 .right.on {
             opacity: 1;
             transform: translateY(0px);
         }
 
-        main #page03 .grid li .right.off {
+        main #page03 .right.off {
             opacity: 0;
             transform: translateY(80px);
             transition: all 1s 0s;
             margin: 230px 0px;
         }
 
-        main #page03 .grid li .right .title {
+        main #page03 .right .title {
             text-align: left;
         }
 
-        main #page03 .grid li .right .name {
+        main #page03 .right .name {
             font-size: 2rem;
             font-weight: bold;
             width: 100%;
-            color: var(--main-brown-color);
+            color: #644234;
+            text-align: left;
         }
 
-        main #page03 .grid li .right .text {
+        main #page03 .right .text {
             width: 100%;
             font-weight: 200;
             margin-top: 10px;
@@ -439,10 +450,11 @@
             position: absolute;
             bottom: 0px;
             width: 100%;
-            background-color: var(--main-brown-color);
+            background-color: #644234;
             line-height: 50px;
             font-weight: bold;
             color: #fff;
+            text-align: center;
         }
 
         main #page04 .swiper .swiper-slide:nth-child(1) {
@@ -505,7 +517,7 @@
         main #page04 .swiper-pagination-bullet {
             width: 10px;
             height: 10px;
-            background-color: var(--main-brown-color);
+            background-color: #644234;
         }
 
         main #page05 .grid {
@@ -517,13 +529,13 @@
         }
 
         main #page05 .title .name {
-            color: var(--main-brown-color);
+            color: #644234;
         }
 
         main #page05 .grid li .text span {
             font-weight: bold;
             font-size: 1.5rem;
-            color: var(--main-brown-color);
+            color: #644234;
         }
 
         main #page05 .grid li form .link {
@@ -536,21 +548,21 @@
             margin-bottom: 5px;
             width: 100%;
             border: 1px solid #ccc;
-            color: var(--main-black-color);
+            color: #2E2E2E;
         }
 
         main #page05 .grid li form textarea {
             width: 100%;
             height: 350px;
             border: 1px solid #ccc;
-            color: var(--main-black-color);
+            color: #2E2E2E;
             padding: 10px;
             margin-bottom: 5px;
         }
 
         main #page05 .grid li form input[type="submit"] {
-            background-color: var(--main-brown-color);
-            color: var(--main-white-color);
+            background-color: #644234;
+            color: #fefefe;
             border: none;
             font-weight: bold;
             width: 100%;
@@ -558,17 +570,17 @@
         }
 
         main #page05 .grid li form input[type="submit"]:hover {
-            background-color: var(--main-beige-color);
+            background-color: #aa8b7e;
         }
 
         footer {
-            background-color: var(--main-brown-color);
+            background-color: #644234;
             padding: 80px 0px 80px;
             min-height: 200px;
         }
 
         footer .footer {
-            color: var(--main-white-color);
+            color: #fefefe;
             font-size: 14px;
             opacity: .7;
             padding-top: 40px;
@@ -609,12 +621,46 @@
                 padding: 25px 0px 20px;
             }
 
+            main #page02 .grid {
+                padding: 30px 20px;
+            }
+
+            main #page02 .grid .left .img {
+                width: 100%;
+                max-width: 280px;
+                min-height: 280px;
+                background-size: contain;
+            }
+
+            main #page02 .grid .right .list li:last-child {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 12px;
+            }
+
+            main #page02 .grid .right .list .sub {
+                line-height: 1.6;
+                font-size: 14px;
+            }
+
+            main #page02 .grid .right .list .skill-icon {
+                font-size: 1.3rem;
+            }
+
             main #page03 .grid {
                 grid-template-columns: 1fr;
             }
 
             main #page03 .grid li .left .title {
                 height: 20vh;
+            }
+
+            main #page03 .left .title .name{
+                text-align: center;
+            }
+
+            main #page03 .right{
+                margin: 150px 0 200px 0;
             }
 
             main #page05 .grid {
@@ -629,7 +675,7 @@
         <div class="wrap">
             <div class="flex">
                 <a href="#" id="logo">
-                    <h1>로고</h1>
+                    <h1></h1>
                 </a>
                 <nav id="menu" class="pc">
                     <ul>
@@ -697,27 +743,30 @@
                             <li>
                                 <div class="text">PROFILE</div>
                                 <div class="sub">최민정 / CHOI MIN JOUNG</div>
-                                <div class="sub">99.08.21 / anio27832@gmail.com</div>
+                                <div class="sub">1999.08.21 / anio27832@gmail.com</div>
                             </li>
                             <li>
                                 <div class="text">EDUCATION</div>
-                                <div class="sub"><span>2021.03 - 2022.02</span>배화여자대학교 스마트IT과(4년) 졸업</div>
                                 <div class="sub"><span>2018.03 - 2020.02</span>배화여자대학교 스마트IT과(2,3년) 졸업</div>
+                                <div class="sub"><span>2021.03 - 2022.02</span>배화여자대학교 스마트IT과(4년) 졸업</div>
                                 <div class="sub"><span>2023.07 - 2023.12</span>풀스택 자바 웹개발자 양성과정 수료</div>
+                                <div class="sub"><span>2025.07 - 2025.11</span>휴넷이지런 인턴</div>
                             </li>
                             <li>
                                 <div class="text">LICENSE</div>
                                 <div class="sub"><span>2024</span>정보처리기사</div>
                                 <div class="sub"><span>2024</span>2종보통운전면허</div>
                             </li>
-                            <li>
+                            <li class="skills">
                                 <div class="text">SKILLS</div>
-                                <span><i class="fa-brands fa-html5 fa-2xl" style="color: #63E6BE;"></i></span>
-                                <span><i class="fa-brands fa-css fa-2xl" style="color: #74C0FC;"></i></span>
-                                <span><i class="fa-brands fa-js fa-2xl" style="color: #FFD43B;"></i></span>
-                                <span><i class="fa-brands fa-react fa-2xl" style="color: #74C0FC;"></i></span>
-                                <span><i class="fa-brands fa-bootstrap fa-2xl" style="color: #B197FC;"></i></span>
-                                <span><i class="fa-brands fa-github fa-2xl"></i></span>
+                                <div class="icons">
+                                    <i class="fa-brands fa-html5 skill-icon" style="color: #63E6BE;"></i>
+                                    <i class="fa-brands fa-css skill-icon" style="color: #74C0FC;"></i>
+                                    <i class="fa-brands fa-js skill-icon" style="color: #FFD43B;"></i>
+                                    <i class="fa-brands fa-react skill-icon" style="color: #74C0FC;"></i>
+                                    <i class="fa-brands fa-bootstrap skill-icon" style="color: #B197FC;"></i>
+                                    <i class="fa-brands fa-github skill-icon"></i>
+                                </div>
                             </li>
                         </ul>
                     </div>
@@ -815,7 +864,7 @@
                 </div>
                 <div class="swiper">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide" style="width:567px;">
+                        <div class="swiper-slide">
                             <a href="https://www.notion.so/2025-2e915ed86bbb8028b1adcc05581f0706?source=copy_link">
                                 <div class="img">
                                     <div class="title">
@@ -825,7 +874,7 @@
                                 <div class="button">이동하기</div>
                             </a>
                         </div>
-                        <div class="swiper-slide" style="width:567px;">
+                        <div class="swiper-slide">
                             <a href="https://www.notion.so/2e915ed86bbb8062b7f6d8718e1c2a96?source=copy_link">
                                 <div class="img">
                                     <div class="title">
@@ -835,7 +884,7 @@
                                 <div class="button">이동하기</div>
                             </a>
                         </div>
-                        <div class="swiper-slide" style="width:567px;">
+                        <div class="swiper-slide">
                             <a href="https://kjh27ss.github.io/mamonde/">
                                 <div class="img">
                                     <div class="title">
@@ -845,7 +894,7 @@
                                 <div class="button">이동하기</div>
                             </a>
                         </div>
-                        <div class="swiper-slide" style="width:567px;">
+                        <div class="swiper-slide">
                             <a href="https://kjh27ss.github.io/Mgccoffee/">
                                 <div class="img">
                                     <div class="title">
@@ -855,7 +904,7 @@
                                 <div class="button">이동하기</div>
                             </a>
                         </div>
-                        <div class="swiper-slide" style="width:567px" ;>
+                        <div class="swiper-slide">
                             <a href="https://hospitalweb-f4342.web.app">
                                 <div class="img">
                                     <div class="title">
@@ -865,7 +914,7 @@
                                 <div class="button">이동하기</div>
                             </a>
                         </div>
-                        <div class="swiper-slide" style="width:567px" ;>
+                        <div class="swiper-slide">
                             <a href="https://kjh27ss.github.io/shop-cart/">
                                 <div class="img">
                                     <div class="title">
@@ -875,7 +924,7 @@
                                 <div class="button">이동하기</div>
                             </a>
                         </div>
-                        <div class="swiper-slide" style="width:567px" ;>
+                        <div class="swiper-slide">
                             <a href="https://kjh27ss.github.io/recipe_project/">
                                 <div class="img">
                                     <div class="title">
@@ -885,7 +934,7 @@
                                 <div class="button">이동하기</div>
                             </a>
                         </div>
-                        <div class="swiper-slide" style="width:567px" ;>
+                        <div class="swiper-slide">
                             <a href="https://github.com/kjh27ss/todo-web.git">
                                 <div class="img">
                                     <div class="title">
@@ -895,7 +944,7 @@
                                 <div class="button">이동하기</div>
                             </a>
                         </div>
-                        <div class="swiper-slide" style="width:567px" ;>
+                        <div class="swiper-slide">
                             <a href="https://kjh27ss.github.io/weatherweb/">
                                 <div class="img">
                                     <div class="title">

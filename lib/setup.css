@@ -5,35 +5,18 @@
     outline: none;
     font-size: 16px;
     line-height: 1.5;
-    vertical-align: middle;
 }
 *:before, *:after{
     box-sizing: border-box;
 }
-html[theme="white"]:root,:root{
-    --main-brown-color:#644234;
-    --main-beige-color:#aa8b7e;
-    --main-white-color:#fefefe;
-    --main-filter-value:brightness(0) invert(.2);
-}
-html[theme="brown"]:root{
-    --main-brown-color:#644234;
-    --main-black-color:#2E2E2E;
-    --main-white-color:#fefefe;
-    --main-gray-color:#aaa;
-    --main-filter-value:brightness(0) invert(1);
-}
 ::selection{
-    background-color: var(--main-black-color);
-    color: var(--main-white-color);
+    background-color: #2E2E2E;
+    color: #fefefe;
 }
 html{
     overflow-x: hidden;
-    text-align: center;
 }
-body{
-    width: 100%;
-    max-width: 1920px;
+body{  
     font-weight: 300;
 }
 img{
@@ -45,9 +28,6 @@ ul, ol {
 span, a{
     line-height: inherit;
     font-size: inherit;
-    font-weight: inherit;
-    vertical-align: inherit;
-    color: inherit;
 }
 a{
     text-decoration: none;
@@ -59,16 +39,10 @@ a{
     box-sizing: border-box;
     padding: 0 30px;
 }
-p,span{
-    word-break: keep-all;
-    overflow-wrap: break-word;
-}
 .flex{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    align-content: center;
-    align-self: center;
     width: 100%;
 }
 .grid{
@@ -78,6 +52,10 @@ p,span{
     width: 100%;
     align-items: center;
     align-self: center;
+}
+
+.text-center{
+    text-align: center;
 }
 
 input{
